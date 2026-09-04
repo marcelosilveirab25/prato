@@ -1,13 +1,26 @@
 {
-  "id":"./",
-  "name":"Prato",
-  "short_name":"Prato",
-  "description":"Organizador de adesão ao plano alimentar.",
-  "lang":"pt-BR",
-  "start_url":"./",
-  "scope":"./",
-  "display":"standalone",
-  "background_color":"#F5F0E7",
-  "theme_color":"#F5F0E7",
-  "icons":[{"src":"./logo-v25.png?v=26","sizes":"192x192","type":"image/png","purpose":"any"}]
+  "id": "./",
+  "name": "Prato",
+  "short_name": "Prato",
+  "description": "Organizador de adesão ao plano alimentar.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#F5F0E7",
+  "icons": [
+    {
+      "src": "./prato-icon-192-v28.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./prato-icon-512-v28.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
 }
