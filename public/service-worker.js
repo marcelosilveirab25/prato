@@ -1,5 +1,5 @@
-const CACHE_NAME='prato-pwa-v30';
-const APP_SHELL=['./','./index.html','./app.css?v=30','./fix-v21.css?v=29','./mobile-v26.css?v=26','./prato-logo-v29.png','./prato-icon-192-v29.png','./prato-icon-512-v29.png','./prato-maskable-192-v29.png','./prato-maskable-512-v29.png','./apple-touch-icon-v29.png','./favicon-48-v29.png'];
+const CACHE_NAME='prato-pwa-v31';
+const APP_SHELL=['./','./index.html','./app.css?v=30','./fix-v21.css?v=29','./mobile-v26.css?v=31','./app-1.js?v=21','./app-2.js?v=31','./fix-v21.js?v=29','./prato-logo-v29.png','./prato-icon-192-v29.png','./prato-icon-512-v29.png','./prato-maskable-192-v29.png','./prato-maskable-512-v29.png','./apple-touch-icon-v29.png','./favicon-48-v29.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(APP_SHELL)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE_NAME).map(key=>caches.delete(key)))).then(()=>self.clients.claim()));});
 self.addEventListener('fetch',event=>{const request=event.request;if(request.method!=='GET')return;const url=new URL(request.url);if(url.origin!==self.location.origin)return;event.respondWith(fetch(request,{cache:'no-store'}).then(response=>{if(response&&response.ok){const copy=response.clone();caches.open(CACHE_NAME).then(cache=>cache.put(request,copy));}return response;}).catch(()=>caches.match(request)));});

@@ -273,10 +273,12 @@ function clearShoppingChecks(){
 function renderAll(){
   renderCurrent();renderToday();renderShopping();renderHistory();renderGoalEditor();renderGoalsGrid();
 }
-document.querySelectorAll('.nav button').forEach(btn=>btn.onclick=()=>{
-  document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
-  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));$(btn.dataset.view).classList.add('active');
-});
+function showView(viewId){
+  const target=$(viewId)||$('current');
+  document.querySelectorAll('.nav button').forEach(btn=>btn.classList.toggle('active',btn.dataset.view===target.id));
+  document.querySelectorAll('.view').forEach(view=>view.classList.toggle('active',view===target));
+}
+document.querySelectorAll('.nav button').forEach(btn=>btn.onclick=()=>showView(btn.dataset.view));
 $('addMealBtn').onclick=()=>openMealModal();
 $('archiveBtn').onclick=archivePlan;
 $('closeMealModal').onclick=closeMealModal;
@@ -292,5 +294,6 @@ $('syncBtn').onclick=()=>syncNow(true);
 $('mealModal').onclick=e=>{if(e.target===$('mealModal'))closeMealModal()};
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMealModal()});
 
+showView('current');
 renderAll();
 startSync();

@@ -68,7 +68,7 @@
   }
   .nav button.active { background:#171715 !important; color:#fff !important; }
   .nav button svg { width:19px !important; height:19px !important; flex:0 0 19px !important; }
-  .nav button[data-view='today']{order:1}.nav button[data-view='current']{order:2}.nav button[data-view='shopping']{order:3}.nav button[data-view='history']{order:4}.nav button[data-view='goals']{order:5}
+  .nav button[data-view='current']{order:1}.nav button[data-view='today']{order:2}.nav button[data-view='shopping']{order:3}.nav button[data-view='history']{order:4}.nav button[data-view='goals']{order:5}
 
   main { width:100% !important; min-width:0 !important; padding:calc(22px + env(safe-area-inset-top)) 14px calc(104px + env(safe-area-inset-bottom)) !important; }
   .view { width:100% !important; min-width:0 !important; }
@@ -85,7 +85,7 @@
   .meal-body .block { min-width:calc(100vw - 56px) !important; max-width:calc(100vw - 56px) !important; scroll-snap-align:start !important; }
   .meal-body .block.full { min-width:100% !important; max-width:100% !important; }
   .today-layout,.goals-grid { display:grid !important; grid-template-columns:1fr !important; gap:14px !important; }
-  .progress-card { position:static !important; width:100% !important; }
+  .today-layout .progress-card { order:-1 !important; position:static !important; width:100% !important; }
   .days-grid { grid-template-columns:repeat(4,minmax(0,1fr)) !important; gap:7px !important; }
   .shopping-list { grid-template-columns:1fr !important; }
   .shopping-summary { flex-direction:column !important; align-items:flex-start !important; gap:7px !important; padding:15px !important; }
