@@ -1,0 +1,10 @@
+.ingredient-display-list{display:grid;gap:5px;margin-top:5px}
+.ingredient-display-row{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:4px 0;border-bottom:1px solid rgba(20,20,18,.06)}
+.ingredient-display-row:last-child{border-bottom:0}
+.ingredient-display-row span{min-width:0}
+.ingredient-display-row strong{font-weight:600;white-space:nowrap;color:var(--text)}
+.ingredient-editor{display:grid;gap:8px}
+.ingredient-editor-row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(130px,.8fr) 38px;gap:8px;align-items:center}
+.ingredient-editor-row input{width:100%;box-sizing:border-box}
+.ingredient-add{justify-self:start;border:1px solid var(--border);background:var(--surface);border-radius:10px;padding:8px 12px;font:inherit;font-weight:600;cursor:pointer}
+@media(max-width:760px){.ingredient-editor-row{grid-template-columns:1fr 120px 36px}.ingredient-display-row{gap:10px}}
