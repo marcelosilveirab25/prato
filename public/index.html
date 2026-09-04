@@ -10,9 +10,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Prato">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="manifest" href="./manifest.webmanifest">
-<link rel="icon" type="image/svg+xml" href="./icon.svg?v=21">
-<link rel="apple-touch-icon" href="./icon.svg?v=21">
+<link rel="manifest" href="./manifest.webmanifest?v=24">
+<link rel="icon" type="image/svg+xml" href="./icon.svg?v=24">
+<link rel="apple-touch-icon" href="./icon.svg?v=24">
 <link rel="stylesheet" href="./app.css?v=21">
 <link rel="stylesheet" href="./fix-v21.css?v=21">
 </head>
@@ -21,7 +21,7 @@
 <aside>
   <div class="brand">
     <div class="logo">
-      <img src="./icon.svg?v=21" alt="PRATO" />
+      <img src="./icon.svg?v=24" alt="PRATO" />
     </div>
     <div class="brand-name">PRATO</div>
   </div>
@@ -192,6 +192,24 @@
 <script src="./app-1.js?v=21"></script>
 <script src="./app-2.js?v=21"></script>
 <script src="./fix-v21.js?v=21"></script>
-<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));}</script>
+<script>
+(()=>{
+  const correct='./icon.svg?v=24';
+  const apply=()=>{
+    document.querySelectorAll('.logo img').forEach(img=>{
+      if(img.getAttribute('src')!==correct) img.setAttribute('src',correct);
+      img.style.opacity='1';
+    });
+    const fav=document.querySelector('link[rel="icon"]');
+    if(fav && fav.getAttribute('href')!==correct) fav.setAttribute('href',correct);
+  };
+  apply();
+  document.querySelectorAll('.logo img').forEach(img=>{
+    new MutationObserver(()=>apply()).observe(img,{attributes:true,attributeFilter:['src']});
+  });
+  window.addEventListener('load',()=>{apply();setTimeout(apply,150);setTimeout(apply,1000);});
+})();
+</script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js?v=24',{updateViaCache:'none'}).catch(()=>{}));}</script>
 </body>
 </html>
