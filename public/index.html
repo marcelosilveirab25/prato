@@ -10,206 +10,51 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Prato">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="manifest" href="./manifest.webmanifest?v=24">
-<link rel="icon" type="image/svg+xml" href="./icon.svg?v=24">
-<link rel="apple-touch-icon" href="./icon.svg?v=24">
+<link rel="manifest" href="./manifest.webmanifest?v=26">
+<link rel="icon" type="image/png" href="./logo-v25.png?v=26">
+<link rel="apple-touch-icon" href="./logo-v25.png?v=26">
 <link rel="stylesheet" href="./app.css?v=21">
-<link rel="stylesheet" href="./fix-v21.css?v=21">
+<link rel="stylesheet" href="./fix-v21.css?v=26">
+<link rel="stylesheet" href="./mobile-v26.css?v=26">
 </head>
 <body>
 <div class="app">
 <aside>
   <div class="brand">
-    <div class="logo">
-      <img src="./icon.svg?v=24" alt="PRATO" />
-    </div>
+    <div class="logo"><img src="./logo-v25.png?v=26" alt="PRATO"></div>
     <div class="brand-name">PRATO</div>
   </div>
-
   <nav class="nav">
-    <button class="active" data-view="current">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16M4 12h16M4 19h10"/></svg>
-      Plano atual
-    </button>
-    <button data-view="today">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 9h18"/><path d="M8 14l2 2 5-5"/></svg>
-      Plano do dia
-    </button>
-    <button data-view="shopping">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h2l2 10h9l2-7H7"/><circle cx="10" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg>
-      Lista de compras
-    </button>
-    <button data-view="history">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12a8 8 0 1 0 2.3-5.7L4 8.6"/><path d="M4 4v4.6h4.6"/><path d="M12 8v5l3 2"/></svg>
-      Planos anteriores
-    </button>
-    <button data-view="goals">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M17.5 6.5L21 3"/></svg>
-      Metas
-    </button>
+    <button class="active" data-view="current"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16M4 12h16M4 19h10"/></svg>Plano atual</button>
+    <button data-view="today"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 9h18"/><path d="M8 14l2 2 5-5"/></svg>Plano do dia</button>
+    <button data-view="shopping"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h2l2 10h9l2-7H7"/><circle cx="10" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg>Lista de compras</button>
+    <button data-view="history"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12a8 8 0 1 0 2.3-5.7L4 8.6"/><path d="M4 4v4.6h4.6"/><path d="M12 8v5l3 2"/></svg>Planos anteriores</button>
+    <button data-view="goals"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M17.5 6.5L21 3"/></svg>Metas</button>
   </nav>
-
   <div class="side-note">O plano atual é a base do checklist diário.</div>
-  <div class="sync-box">
-    <button class="btn" id="syncBtn" title="Sincronizar agora">↻ Sincronizar</button>
-    <div class="sync-status"><i class="sync-dot" id="syncDot"></i><span id="syncStatus">Preparando sincronização…</span></div>
-  </div>
+  <div class="sync-box"><button class="btn" id="syncBtn" title="Sincronizar agora">↻ Sincronizar</button><div class="sync-status"><i class="sync-dot" id="syncDot"></i><span id="syncStatus">Preparando sincronização…</span></div></div>
 </aside>
-
 <main>
 <section id="current" class="view active">
-  <div class="topbar">
-    <div class="title">
-      <h1>Plano atual</h1>
-      <p>Cadastre sua dieta vigente. Refeições como lanche podem ter duas ou mais opções.</p>
-    </div>
-    <div class="actions">
-      <button class="btn" id="archiveBtn">Arquivar plano</button>
-      <button class="btn primary" id="addMealBtn">+ Nova refeição</button>
-    </div>
-  </div>
+  <div class="topbar"><div class="title"><h1>Plano atual</h1><p>Cadastre sua dieta vigente. Refeições como lanche podem ter duas ou mais opções.</p></div><div class="actions"><button class="btn" id="archiveBtn">Arquivar plano</button><button class="btn primary" id="addMealBtn">+ Nova refeição</button></div></div>
   <div class="plan-list" id="currentPlanList"></div>
 </section>
-
 <section id="today" class="view">
-  <div class="topbar">
-    <div class="title">
-      <h1>Plano do dia</h1>
-      <p id="todayDateLabel">Checklist de hoje baseado no seu plano atual.</p>
-    </div>
-    <div class="actions">
-      <button class="btn" id="resetTodayBtn">Reiniciar checklist</button>
-    </div>
-  </div>
-
-  <div class="today-layout">
-    <div>
-      <div class="check-list" id="todayMeals"></div>
-
-    </div>
-
-    <div class="card progress-card">
-      <h3>Objetivo do dia</h3>
-      <div class="ring" id="progressRing">
-        <div class="ring-inner">
-          <strong id="progressPct">0%</strong>
-          <span>concluído</span>
-        </div>
-      </div>
-      <div class="progress-row"><span>Refeições</span><strong id="mealProgress">0/0</strong></div>
-      <div class="progress-row"><span>Status</span><strong id="dayStatus">Em andamento</strong></div>
-    </div>
-  </div>
+  <div class="topbar"><div class="title"><h1>Plano do dia</h1><p id="todayDateLabel">Checklist de hoje baseado no seu plano atual.</p></div><div class="actions"><button class="btn" id="resetTodayBtn">Reiniciar checklist</button></div></div>
+  <div class="today-layout"><div><div class="check-list" id="todayMeals"></div></div><div class="card progress-card"><h3>Objetivo do dia</h3><div class="ring" id="progressRing"><div class="ring-inner"><strong id="progressPct">0%</strong><span>concluído</span></div></div><div class="progress-row"><span>Refeições</span><strong id="mealProgress">0/0</strong></div><div class="progress-row"><span>Status</span><strong id="dayStatus">Em andamento</strong></div></div></div>
 </section>
-
 <section id="shopping" class="view">
-  <div class="topbar">
-    <div class="title">
-      <h1>Lista de compras</h1>
-      <p>Ingredientes calculados automaticamente a partir do seu plano atual.</p>
-    </div>
-    <div class="actions">
-      <div class="shopping-days-control" title="Quantidade de dias da compra">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
-        <input id="shoppingDaysInput" type="number" min="1" max="60" step="1" value="7" aria-label="Dias da lista de compras">
-        <span>dias</span>
-      </div>
-      <button class="btn" id="clearShoppingChecksBtn">Limpar checks</button>
-    </div>
-  </div>
-  <div class="card shopping-summary">
-    <div class="shopping-summary-main">
-      <strong id="shoppingSummaryTitle">Compra para 7 dias</strong>
-      <span id="shoppingSummaryText">Calculando ingredientes…</span>
-    </div>
-    <div class="shopping-summary-count" id="shoppingSummaryCount">0 itens</div>
-  </div>
-  <div class="shopping-list" id="shoppingList"></div>
-  <div class="shopping-note">Quando um ingrediente aparece mais de uma vez, o Prato agrupa pelo nome e soma quantidades compatíveis. Refeições com mais de uma opção incluem os ingredientes de todas as opções do plano.</div>
+  <div class="topbar"><div class="title"><h1>Lista de compras</h1><p>Ingredientes calculados automaticamente a partir do seu plano atual.</p></div><div class="actions"><div class="shopping-days-control" title="Quantidade de dias da compra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg><input id="shoppingDaysInput" type="number" min="1" max="60" step="1" value="7" aria-label="Dias da lista de compras"><span>dias</span></div><button class="btn" id="clearShoppingChecksBtn">Limpar checks</button></div></div>
+  <div class="card shopping-summary"><div class="shopping-summary-main"><strong id="shoppingSummaryTitle">Compra para 7 dias</strong><span id="shoppingSummaryText">Calculando ingredientes…</span></div><div class="shopping-summary-count" id="shoppingSummaryCount">0 itens</div></div><div class="shopping-list" id="shoppingList"></div><div class="shopping-note">Quando um ingrediente aparece mais de uma vez, o Prato agrupa pelo nome e soma quantidades compatíveis. Refeições com mais de uma opção incluem os ingredientes de todas as opções do plano.</div>
 </section>
-
-<section id="history" class="view">
-  <div class="topbar">
-    <div class="title">
-      <h1>Planos anteriores</h1>
-      <p>Planos arquivados ficam guardados aqui para consulta.</p>
-    </div>
-  </div>
-  <div class="history-list" id="historyList"></div>
-</section>
-
-<section id="goals" class="view">
-  <div class="topbar">
-    <div class="title">
-      <h1>Metas</h1>
-      <p>Acompanhe em quais dias você cumpriu as refeições e os objetivos definidos.</p>
-    </div>
-  </div>
-
-  <div class="goals-grid">
-    <div class="card goal-config">
-      <h3>Meta de adesão</h3>
-      <div class="field">
-        <label>Percentual mínimo de refeições concluídas no dia</label>
-        <input id="mealTargetInput" type="number" min="1" max="100">
-      </div>
-      <button class="btn green" id="saveGoalsBtn" style="margin-top:14px;width:100%">Salvar meta</button>
-    </div>
-
-    <div class="card days-card">
-      <h3>Últimos 28 dias</h3>
-      <p>Verde = meta atingida. Laranja = progresso parcial.</p>
-      <div class="days-grid" id="daysGrid"></div>
-      <div class="legend">
-        <span><i style="background:var(--green)"></i>Meta atingida</span>
-        <span><i style="background:var(--orange)"></i>Parcial</span>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="history" class="view"><div class="topbar"><div class="title"><h1>Planos anteriores</h1><p>Planos arquivados ficam guardados aqui para consulta.</p></div></div><div class="history-list" id="historyList"></div></section>
+<section id="goals" class="view"><div class="topbar"><div class="title"><h1>Metas</h1><p>Acompanhe em quais dias você cumpriu as refeições e os objetivos definidos.</p></div></div><div class="goals-grid"><div class="card goal-config"><h3>Meta de adesão</h3><div class="field"><label>Percentual mínimo de refeições concluídas no dia</label><input id="mealTargetInput" type="number" min="1" max="100"></div><button class="btn green" id="saveGoalsBtn" style="margin-top:14px;width:100%">Salvar meta</button></div><div class="card days-card"><h3>Últimos 28 dias</h3><p>Verde = meta atingida. Laranja = progresso parcial.</p><div class="days-grid" id="daysGrid"></div><div class="legend"><span><i style="background:var(--green)"></i>Meta atingida</span><span><i style="background:var(--orange)"></i>Parcial</span></div></div></div></section>
 </main>
 </div>
-
-<div class="modal-bg" id="mealModal">
-  <div class="modal">
-    <div class="modal-head">
-      <h2 id="mealModalTitle">Nova refeição</h2>
-      <button class="icon-btn" id="closeMealModal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="field"><label>Nome da refeição</label><input id="mealName" placeholder="Ex.: Café da manhã"></div>
-      <div id="optionsEditor"></div>
-      <button class="btn" id="addMealOptionBtn" style="width:100%;margin-top:12px">+ Adicionar outra opção</button>
-    </div>
-    <div class="modal-actions">
-      <button class="btn" id="cancelMealModal">Cancelar</button>
-      <button class="btn primary" id="saveMealModal">Salvar refeição</button>
-    </div>
-  </div>
-</div>
+<div class="modal-bg" id="mealModal"><div class="modal"><div class="modal-head"><h2 id="mealModalTitle">Nova refeição</h2><button class="icon-btn" id="closeMealModal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div><div class="modal-body"><div class="field"><label>Nome da refeição</label><input id="mealName" placeholder="Ex.: Café da manhã"></div><div id="optionsEditor"></div><button class="btn" id="addMealOptionBtn" style="width:100%;margin-top:12px">+ Adicionar outra opção</button></div><div class="modal-actions"><button class="btn" id="cancelMealModal">Cancelar</button><button class="btn primary" id="saveMealModal">Salvar refeição</button></div></div></div>
 <script src="./app-1.js?v=21"></script>
 <script src="./app-2.js?v=21"></script>
-<script src="./fix-v21.js?v=21"></script>
-<script>
-(()=>{
-  const correct='./icon.svg?v=24';
-  const apply=()=>{
-    document.querySelectorAll('.logo img').forEach(img=>{
-      if(img.getAttribute('src')!==correct) img.setAttribute('src',correct);
-      img.style.opacity='1';
-    });
-    const fav=document.querySelector('link[rel="icon"]');
-    if(fav && fav.getAttribute('href')!==correct) fav.setAttribute('href',correct);
-  };
-  apply();
-  document.querySelectorAll('.logo img').forEach(img=>{
-    new MutationObserver(()=>apply()).observe(img,{attributes:true,attributeFilter:['src']});
-  });
-  window.addEventListener('load',()=>{apply();setTimeout(apply,150);setTimeout(apply,1000);});
-})();
-</script>
-<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js?v=24',{updateViaCache:'none'}).catch(()=>{}));}</script>
+<script src="./fix-v21.js?v=26"></script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js?v=26',{updateViaCache:'none'}).catch(()=>{}));}</script>
 </body>
 </html>
