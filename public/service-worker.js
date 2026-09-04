@@ -1,4 +1,4 @@
-const CACHE_NAME='prato-pwa-v22';
+const CACHE_NAME='prato-pwa-v24';
 self.addEventListener('install',event=>event.waitUntil(self.skipWaiting()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(k=>k!==CACHE_NAME).map(k=>caches.delete(k)));await self.clients.claim();})()));
 self.addEventListener('fetch',event=>{const r=event.request;if(r.method!=='GET')return;const u=new URL(r.url);if(u.origin!==self.location.origin)return;event.respondWith((async()=>{try{const fresh=await fetch(r,{cache:'no-store'});if(fresh&&fresh.ok){const c=await caches.open(CACHE_NAME);c.put(r,fresh.clone()).catch(()=>{});}return fresh;}catch(e){const cached=await caches.match(r);if(cached)return cached;if(r.mode==='navigate')return (await caches.match('./index.html'))||Response.error();return Response.error();}})());});
