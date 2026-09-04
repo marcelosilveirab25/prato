@@ -8,9 +8,9 @@
 .ingredient-editor-row input{width:100%;box-sizing:border-box}
 .ingredient-add{justify-self:start;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:8px 12px;font:inherit;font-weight:600;cursor:pointer}
 
-/* V25 logo oficial */
-.logo{background-image:url('./logo-v25.png')!important;background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;background-color:transparent!important}
-.logo img{opacity:0!important}
+/* V29 logo oficial: o PNG já contém o branco arredondado e transparência externa. */
+.logo{background-image:none!important;background-color:transparent!important}
+.logo img{opacity:1!important;border-radius:inherit}
 
 /* V25 interface mobile real */
 @media(max-width:760px){

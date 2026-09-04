@@ -123,14 +123,4 @@ syncDraftOptions=function(){
   document.querySelectorAll('.op-prep').forEach(el=>draftOptions[Number(el.dataset.i)].prep=el.value.trim());
 };
 
-fetch('./icon.svg?v=21',{cache:'no-store'})
-  .then(r=>r.text())
-  .then(svg=>{
-    const url=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml'}));
-    document.querySelectorAll('.logo img').forEach(img=>img.src=url);
-    const favicon=document.querySelector('link[rel="icon"]');
-    if(favicon)favicon.href=url;
-  })
-  .catch(()=>{});
-
 renderCurrent();
