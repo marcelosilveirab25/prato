@@ -11,16 +11,17 @@
 <meta name="apple-mobile-web-app-title" content="Prato">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="manifest" href="./manifest.webmanifest">
-<link rel="icon" type="image/svg+xml" href="./icon.svg">
-<link rel="apple-touch-icon" href="./icon.svg">
-<link rel="stylesheet" href="./app.css">
+<link rel="icon" type="image/svg+xml" href="./icon.svg?v=21">
+<link rel="apple-touch-icon" href="./icon.svg?v=21">
+<link rel="stylesheet" href="./app.css?v=21">
+<link rel="stylesheet" href="./fix-v21.css?v=21">
 </head>
 <body>
 <div class="app">
 <aside>
   <div class="brand">
     <div class="logo">
-      <img src="./icon.svg" alt="PRATO" />
+      <img src="./icon.svg?v=21" alt="PRATO" />
     </div>
     <div class="brand-name">PRATO</div>
   </div>
@@ -188,8 +189,9 @@
     </div>
   </div>
 </div>
-<script src="./app-1.js"></script>
-<script src="./app-2.js"></script>
+<script src="./app-1.js?v=21"></script>
+<script src="./app-2.js?v=21"></script>
+<script src="./fix-v21.js?v=21"></script>
 <script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));}</script>
 </body>
 </html>
