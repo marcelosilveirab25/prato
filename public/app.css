@@ -44,11 +44,9 @@ aside{
 .nav button:hover{background:rgba(255,255,255,.55);color:var(--text)}
 .nav button.active{background:#171715;color:#fff}
 .nav svg{width:18px;height:18px}
-.side-note{margin-top:auto;color:var(--muted);font-size:11px;line-height:1.5;padding:8px 10px}
-.sync-box{margin-top:10px;padding:10px;border:1px solid var(--line);border-radius:12px;background:#fff}
-.sync-box .btn{width:100%;font-size:12px;padding:9px 10px}
-.sync-status{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:10px;color:var(--muted)}
-.sync-dot{width:7px;height:7px;border-radius:50%;background:#a8a29e}.sync-dot.ok{background:var(--green)}.sync-dot.busy{background:#d97706}.sync-dot.error{background:#dc2626}
+.sync-box{margin-top:auto}
+.sync-box .btn{width:100%;padding:8px 10px;border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:600}
+.sync-box .btn:hover{background:rgba(255,255,255,.55);color:var(--text)}
 main{padding:34px 38px 50px;min-width:0}
 .view{display:none}.view.active{display:block}
 .topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:24px}
